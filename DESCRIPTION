@@ -1,0 +1,12 @@
+Package: ccl
+Type: Package
+Title: Connected Components Labeling
+Version: 0.1
+Date: 2016-09-01
+Author: Kristin A. Linn
+Maintainer: Kristin A. Linn <klinn@upenn.edu>
+Description: Label the connected components of a 3D binary array or nifti object.
+License: GPL-2
+LazyData: TRUE
+RoxygenNote: 5.0.1
+
