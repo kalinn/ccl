@@ -4,7 +4,7 @@
 
 This is an implementation of a connected components labeling algorithm for 3D binary arrays (or nifti objects) in R. It was written with the purpose of labeling Multiple Sclerosis lesions based on a binary lesion mask. 
 
-IMPORTANT NOTE: This code is not yet optimized or parallelized and there are likely other versions available that are more efficient (see, for example, the connComp3D function in R package 'neuroim'). It could be improved by paralellizing the labeling of individual slices and by employing Rcpp to speed up the loops. There also probably exist algorithms that are faster at finding the class equivalences or require only one pass through the 2D images. On a single test lesion mask (size 258x258x178), the ccl function took 53 seconds and connComp3D took 20 seconds.
+IMPORTANT NOTE: This code is not yet optimized or parallelized and there are likely other versions available that are more efficient (see, for example, the connComp3D function in R package 'neuroim'). It could be improved by parallelizing the labeling of individual slices and by employing Rcpp to speed up the loops. There also probably exist algorithms that are faster at finding the class equivalences or require only one pass through the 2D images. On a single test lesion mask (size 258x258x178), the ccl function took 53 seconds and connComp3D took 20 seconds.
 
 ### Method 
 
