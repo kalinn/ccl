@@ -12,11 +12,11 @@ The algorithm uses 6-connectivity (i.e., two voxels are connected if and only if
 
 The algorithm starts by implementing a two-pass labeling step on each slice (i.e., index) in the 3rd dimension. The two-pass algorithm first assigns temporary labels to connected components column-wise. It also keeps track of column-wise equivalence classes, meaning which pixels are in the same group. The following figure demonstrates the result of a column pass.
 
-![colPass](https://kalinn.github.com/ccl/images/colPass.png)
+![Column Pass](./images/colPass.png?raw=true "Column Pass Example")
 
 Next, a row pass traverses through the rows and sequentially absorbs all row-wise connected components into the smallest label of the group. Additionally, it relabels any pixel from lower rows according to the column-wise equivalence classes and updates the equivalence classes. The following figure demonstrates the result of a row pass.
 
-![rowPass](https://kalinn.github.com/ccl/images/rowPass.png)
+![Row Pass](./images/rowPass.png?raw=true "Row Pass Example")
 
 Finally, the slice-wise components are connected across the 3rd dimension. To do this, I first rename the current labels so that each is a unique integer (1, 2, 3, ...) and the labels increase with the index of the 3rd dimension. Starting with the 2D group labeled 1, I update the equivalence classes by looking at the voxels in the next slice corresponding to my current location. I record the labels that appear there (excluding 0), and follow the indices of those new labels to the next slice. This proceeds until the next slice voxels corresponding to my current location are all 0. All labels in this equivalence class are assigned a 1. This continues for the remaining groups, starting with the smallest group that has not yet been absorbed. Whenever groups are merged, the minimum of the equivalence class is assigned as the new label.
 
